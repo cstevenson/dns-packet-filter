@@ -1,0 +1,5 @@
+set -tmpdir "D:/_prj/dns-packet-filter/dns-regex/xst/projnav.tmp"
+set -xsthdpdir "D:/_prj/dns-packet-filter/dns-regex/xst"
+elaborate
+-ifn dns_regex.prj
+-ifmt mixed

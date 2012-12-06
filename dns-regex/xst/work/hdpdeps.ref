@@ -1,0 +1,6 @@
+V3 3
+FL D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd 2012/12/04.21:24:37 O.61xd
+EN work/dns_regex 1354674290 FL D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd \
+      PB ieee/std_logic_1164 1308643377
+AR work/dns_regex/Behavioral 1354674291 \
+      FL D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd EN work/dns_regex 1354674290

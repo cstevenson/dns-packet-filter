@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
