@@ -5,14 +5,14 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Xst" timeStamp="Tue Dec 04 21:24:48 2012">
+  <application stringID="Xst" timeStamp="Fri Dec 07 16:10:04 2012">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
           <item stringID="variable" value="Path"/>
-          <item stringID="value" value="D:\Xilinx\13.2\ISE_DS\ISE\\lib\nt64;D:\Xilinx\13.2\ISE_DS\ISE\\bin\nt64;C:\Program Files (x86)\Haskell\bin;D:\Program Files (x86)\Haskell Platform\2012.4.0.0\lib\extralibs\bin;D:\Program Files (x86)\Haskell Platform\2012.4.0.0\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\WiFi\bin\;C:\PROGRA~2\Aldec\ACTIVE~1.3\BIN;D:\Program Files\MATLAB\R2008a\bin;D:\Program Files\MATLAB\R2008a\bin\win64;C:\Program Files (x86)\jZip;D:\Program Files (x86)\Haskell Platform\2012.4.0.0\mingw\bin;C:\Users\Chris\AppData\Roaming\cabal\bin;D:\Modeltech_pe_edu_10.0\win32pe_edu;D:\Modeltech_pe_edu_10.0a\win32pe_edu;D:\modeltech_pe_10.1\win32pe;D:\Modeltech_pe_edu_10.1\win32pe_edu;D:\Modeltech_pe_edu_10.1c\win32pe_edu"/>
+          <item stringID="value" value="D:\Xilinx\13.2\ISE_DS\ISE\\lib\nt64;D:\Xilinx\13.2\ISE_DS\ISE\\bin\nt64;D:\Xilinx\13.2\ISE_DS\PlanAhead\bin;D:\Xilinx\13.2\ISE_DS\ISE\bin\nt64;D:\Xilinx\13.2\ISE_DS\ISE\lib\nt64;D:\Xilinx\13.2\ISE_DS\EDK\bin\nt64;D:\Xilinx\13.2\ISE_DS\EDK\lib\nt64;D:\Xilinx\13.2\ISE_DS\EDK\gnu\microblaze\nt64\bin;D:\Xilinx\13.2\ISE_DS\EDK\gnu\powerpc-eabi\nt64\bin;D:\Xilinx\13.2\ISE_DS\EDK\gnuwin\bin;D:\Xilinx\13.2\ISE_DS\common\bin\nt64;D:\Xilinx\13.2\ISE_DS\common\lib\nt64;C:\Program Files (x86)\Haskell\bin;D:\Program Files (x86)\Haskell Platform\2012.4.0.0\lib\extralibs\bin;D:\Program Files (x86)\Haskell Platform\2012.4.0.0\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\WiFi\bin\;C:\PROGRA~2\Aldec\ACTIVE~1.3\BIN;D:\Program Files\MATLAB\R2008a\bin;D:\Program Files\MATLAB\R2008a\bin\win64;C:\Program Files (x86)\jZip;D:\Program Files (x86)\Haskell Platform\2012.4.0.0\mingw\bin;C:\Users\Chris\AppData\Roaming\cabal\bin;D:\Modeltech_pe_edu_10.0\win32pe_edu;D:\Modeltech_pe_edu_10.0a\win32pe_edu;D:\modeltech_pe_10.1\win32pe;D:\Modeltech_pe_edu_10.1\win32pe_edu;D:\Modeltech_pe_edu_10.1c\win32pe_edu"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="PATHEXT"/>
@@ -21,6 +21,18 @@
         <row stringID="row" value="2">
           <item stringID="variable" value="XILINX"/>
           <item stringID="value" value="D:\Xilinx\13.2\ISE_DS\ISE\"/>
+        </row>
+        <row stringID="row" value="3">
+          <item stringID="variable" value="XILINX_DSP"/>
+          <item stringID="value" value="D:\Xilinx\13.2\ISE_DS\ISE"/>
+        </row>
+        <row stringID="row" value="4">
+          <item stringID="variable" value="XILINX_EDK"/>
+          <item stringID="value" value="D:\Xilinx\13.2\ISE_DS\EDK"/>
+        </row>
+        <row stringID="row" value="5">
+          <item stringID="variable" value="XILINX_PLANAHEAD"/>
+          <item stringID="value" value="D:\Xilinx\13.2\ISE_DS\PlanAhead"/>
         </row>
       </table>
       <item stringID="User_EnvOs" value="OS Information">
@@ -93,8 +105,30 @@
       <item DEFAULT="YES" label="-equivalent_register_removal" stringID="XST_EQUIVALENTREGISTERREMOVAL" value="YES"/>
       <item DEFAULT="0%" label="-slice_utilization_ratio_maxmargin" stringID="XST_SLICEUTILIZATIONRATIOMAXMARGIN" value="5"/>
     </section>
-    <section stringID="XST_ADVANCED_HDL_SYNTHESIS_REPORTFOUND_NO_MACRO"/>
-    <section stringID="XST_FINAL_REGISTER_REPORTFOUND_NO_MACRO"/>
+    <section stringID="XST_HDL_SYNTHESIS_REPORT">
+      <item dataType="int" stringID="XST_COUNTERS" value="1">
+        <item dataType="int" stringID="XST_11BIT_UP_COUNTER" value="1"/>
+      </item>
+      <item dataType="int" stringID="XST_REGISTERS" value="2">
+        <item dataType="int" stringID="XST_1BIT_REGISTER" value="2"/>
+      </item>
+      <item dataType="int" stringID="XST_COMPARATORS" value="2"></item>
+    </section>
+    <section stringID="XST_ADVANCED_HDL_SYNTHESIS_REPORT">
+      <item dataType="int" stringID="XST_FSMS" value="1"/>
+      <item dataType="int" stringID="XST_COUNTERS" value="1">
+        <item dataType="int" stringID="XST_11BIT_UP_COUNTER" value="1"/>
+      </item>
+      <item dataType="int" stringID="XST_REGISTERS" value="2">
+        <item dataType="int" stringID="XST_FLIPFLOPS" value="2"/>
+      </item>
+      <item dataType="int" stringID="XST_COMPARATORS" value="2"></item>
+    </section>
+    <section stringID="XST_FINAL_REGISTER_REPORT">
+      <item dataType="int" stringID="XST_REGISTERS" value="19">
+        <item dataType="int" stringID="XST_FLIPFLOPS" value="19"/>
+      </item>
+    </section>
     <section stringID="XST_PARTITION_REPORT">
       <section stringID="XST_PARTITION_IMPLEMENTATION_STATUS">
         <section stringID="XST_NO_PARTITIONS_WERE_FOUND_IN_THIS_DESIGN"/>
@@ -112,27 +146,50 @@
         <item stringID="XST_IOS" value="15"/>
       </section>
       <section stringID="XST_CELL_USAGE">
-        <item dataType="int" stringID="XST_BELS" value="1">
+        <item dataType="int" stringID="XST_BELS" value="65">
           <item dataType="int" stringID="XST_GND" value="1"/>
+          <item dataType="int" stringID="XST_INV" value="1"/>
+          <item dataType="int" stringID="XST_LUT1" value="10"/>
+          <item dataType="int" stringID="XST_LUT2" value="4"/>
+          <item dataType="int" stringID="XST_LUT3" value="7"/>
+          <item dataType="int" stringID="XST_LUT3L" value="1"/>
+          <item dataType="int" stringID="XST_LUT4" value="12"/>
+          <item dataType="int" stringID="XST_LUT4D" value="5"/>
+          <item dataType="int" stringID="XST_MUXCY" value="10"/>
+          <item dataType="int" stringID="XST_MUXF5" value="2"/>
+          <item dataType="int" stringID="XST_VCC" value="1"/>
+          <item dataType="int" stringID="XST_XORCY" value="11"/>
         </item>
-        <item dataType="int" stringID="XST_IO_BUFFERS" value="2">
+        <item dataType="int" stringID="XST_FLIPFLOPSLATCHES" value="20">
+          <item dataType="int" stringID="XST_FDC" value="7"/>
+          <item dataType="int" stringID="XST_FDCE" value="11"/>
+          <item dataType="int" stringID="XST_FDP" value="1"/>
+        </item>
+        <item dataType="int" stringID="XST_CLOCK_BUFFERS" value="1">
+          <item dataType="int" stringID="XST_BUFGP" value="1"/>
+        </item>
+        <item dataType="int" stringID="XST_IO_BUFFERS" value="13">
+          <item dataType="int" stringID="XST_IBUF" value="11"/>
           <item dataType="int" stringID="XST_OBUF" value="2"/>
         </item>
       </section>
     </section>
     <section stringID="XST_DEVICE_UTILIZATION_SUMMARY">
       <item stringID="XST_SELECTED_DEVICE" value="3s500efg320-5"/>
-      <item AVAILABLE="4656" dataType="int" label="Number of Slices" stringID="XST_NUMBER_OF_SLICES" value="0"/>
+      <item AVAILABLE="4656" dataType="int" label="Number of Slices" stringID="XST_NUMBER_OF_SLICES" value="23"/>
+      <item AVAILABLE="9312" dataType="int" label="Number of Slice Flip Flops" stringID="XST_NUMBER_OF_SLICE_FLIP_FLOPS" value="20"/>
+      <item AVAILABLE="9312" dataType="int" label="Number of 4 input LUTs" stringID="XST_NUMBER_OF_4_INPUT_LUTS" value="40"/>
       <item dataType="int" label="Number of IOs" stringID="XST_NUMBER_OF_IOS" value="15"/>
-      <item AVAILABLE="232" dataType="int" label="Number of bonded IOBs" stringID="XST_NUMBER_OF_BONDED_IOBS" value="2"/>
+      <item AVAILABLE="232" dataType="int" label="Number of bonded IOBs" stringID="XST_NUMBER_OF_BONDED_IOBS" value="14"/>
+      <item AVAILABLE="24" dataType="int" label="Number of GCLKs" stringID="XST_NUMBER_OF_GCLKS" value="1"/>
     </section>
     <section stringID="XST_PARTITION_RESOURCE_SUMMARY">
       <section stringID="XST_NO_PARTITIONS_WERE_FOUND_IN_THIS_DESIGN"/>
     </section>
     <section stringID="XST_ERRORS_STATISTICS">
       <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_ERRORS" value="0"/>
-      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_WARNINGS" value="9"/>
-      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_INFOS" value="2"/>
+      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_WARNINGS" value="3"/>
+      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_INFOS" value="3"/>
     </section>
   </application>
 

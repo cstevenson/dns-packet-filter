@@ -1,0 +1,3 @@
+vhdl work "../counter/counter.vhd"
+vhdl work "dns_regex.vhd"
+vhdl work "../simulation/dns_regex_tb.vhd"

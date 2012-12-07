@@ -3,14 +3,14 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: dns_regex.prj
 
@@ -104,13 +104,19 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
+Compiling vhdl file "D:/_prj/dns-packet-filter/counter/counter.vhd" in Library work.
+Architecture behv of Entity counter is up to date.
 Compiling vhdl file "D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd" in Library work.
-Architecture behavioral of Entity dns_regex is up to date.
+Entity <dns_regex> compiled.
+Entity <dns_regex> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
 Analyzing hierarchy for entity <dns_regex> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <counter> in library <work> (architecture <behv>) with generics.
+	N = 11
 
 
 =========================================================================
@@ -119,49 +125,111 @@ Analyzing hierarchy for entity <dns_regex> in library <work> (architecture <beha
 Analyzing Entity <dns_regex> in library <work> (Architecture <behavioral>).
 Entity <dns_regex> analyzed. Unit <dns_regex> generated.
 
+Analyzing generic Entity <counter> in library <work> (Architecture <behv>).
+	N = 11
+Entity <counter> analyzed. Unit <counter> generated.
+
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <rdy_buf_reg> in unit <dns_regex> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <match_buf_reg> in unit <dns_regex> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <counter>.
+    Related source file is "D:/_prj/dns-packet-filter/counter/counter.vhd".
+    Found 11-bit up counter for signal <Pre_Q>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <counter> synthesized.
+
 
 Synthesizing Unit <dns_regex>.
     Related source file is "D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd".
-WARNING:Xst:647 - Input <src_rdy_in_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <data_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <eof_in_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <sof_in_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:646 - Signal <state_reg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <state_next> is used but never assigned. This sourceless signal will be automatically connected to value 000.
-WARNING:Xst:1780 - Signal <port_next> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <port_buf_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <counter> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <enable> is used but never assigned. This sourceless signal will be automatically connected to value 1.
+    Found finite state machine <FSM_0> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 15                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 9                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | st_idle                                        |
+    | Power Up State     | st_idle                                        |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <clear>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit register for signal <match_buf_reg>.
+    Found 1-bit register for signal <rdy_buf_reg>.
+    Found 11-bit comparator lessequal for signal <state_reg$cmp_le0000> created at line 100.
+    Found 11-bit comparator less for signal <state_reg$cmp_lt0000> created at line 112.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   2 Comparator(s).
 Unit <dns_regex> synthesized.
 
 
 =========================================================================
 HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Counters                                             : 1
+ 11-bit up counter                                     : 1
+# Registers                                            : 2
+ 1-bit register                                        : 2
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 2
+ 11-bit comparator less                                : 1
+ 11-bit comparator lessequal                           : 1
+
 =========================================================================
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <state_reg/FSM> on signal <state_reg[1:7]> with one-hot encoding.
+---------------------------------
+ State               | Encoding
+---------------------------------
+ st_idle             | 0000001
+ st_any_char_counter | 0000010
+ st_proto            | 0000100
+ st_port1            | 0001000
+ st_port2            | 0100000
+ st_match            | 1000000
+ st_no_match         | 0010000
+---------------------------------
 
 =========================================================================
 Advanced HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# FSMs                                                 : 1
+# Counters                                             : 1
+ 11-bit up counter                                     : 1
+# Registers                                            : 2
+ Flip-Flops                                            : 2
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 2
+ 11-bit comparator less                                : 1
+ 11-bit comparator lessequal                           : 1
+
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:2261 - The FF/Latch <state_reg_FSM_FFd1> in Unit <dns_regex> is equivalent to the following FF/Latch, which will be removed : <match_buf_reg> 
 
 Optimizing unit <dns_regex> ...
 
@@ -174,7 +242,10 @@ Final Macro Processing ...
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 19
+ Flip-Flops                                            : 19
+
 =========================================================================
 
 =========================================================================
@@ -202,9 +273,28 @@ Design Statistics
 # IOs                              : 15
 
 Cell Usage :
-# BELS                             : 1
+# BELS                             : 65
 #      GND                         : 1
-# IO Buffers                       : 2
+#      INV                         : 1
+#      LUT1                        : 10
+#      LUT2                        : 4
+#      LUT3                        : 7
+#      LUT3_L                      : 1
+#      LUT4                        : 12
+#      LUT4_D                      : 5
+#      MUXCY                       : 10
+#      MUXF5                       : 2
+#      VCC                         : 1
+#      XORCY                       : 11
+# FlipFlops/Latches                : 20
+#      FDC                         : 7
+#      FDCE                        : 11
+#      FDP                         : 1
+#      LD_1                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 11
 #      OBUF                        : 2
 =========================================================================
 
@@ -213,9 +303,12 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-5 
 
- Number of Slices:                        0  out of   4656     0%  
+ Number of Slices:                       23  out of   4656     0%  
+ Number of Slice Flip Flops:             20  out of   9312     0%  
+ Number of 4 input LUTs:                 40  out of   9312     0%  
  Number of IOs:                          15
- Number of bonded IOBs:                   2  out of    232     0%  
+ Number of bonded IOBs:                  14  out of    232     6%  
+ Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
 Partition Resource Summary:
@@ -235,19 +328,33 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-No clock signals found in this design
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 19    |
+clear_or0000(clear_or0000_f5:O)    | NONE(*)(clear)         | 1     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
-No asynchronous control signals found in this design
+-----------------------------------+------------------------------+-------+
+Control Signal                     | Buffer(FF name)              | Load  |
+-----------------------------------+------------------------------+-------+
+clear(clear:Q)                     | NONE(counter_11_unit/Pre_Q_0)| 11    |
+reset                              | IBUF                         | 8     |
+-----------------------------------+------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
+   Minimum period: 4.059ns (Maximum Frequency: 246.387MHz)
+   Minimum input arrival time before clock: 6.953ns
+   Maximum output required time after clock: 4.134ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -255,16 +362,103 @@ Timing Detail:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.059ns (frequency: 246.387MHz)
+  Total number of paths / destination ports: 149 / 19
+-------------------------------------------------------------------------
+Delay:               4.059ns (Levels of Logic = 3)
+  Source:            counter_11_unit/Pre_Q_6 (FF)
+  Destination:       rdy_buf_reg (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: counter_11_unit/Pre_Q_6 to rdy_buf_reg
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.514   0.603  counter_11_unit/Pre_Q_6 (counter_11_unit/Pre_Q_6)
+     LUT3:I0->O            3   0.612   0.454  state_reg_cmp_lt0000224 (state_reg_cmp_lt0000224)
+     LUT4_D:I3->O          2   0.612   0.383  state_reg_cmp_lt0000239 (state_reg_cmp_lt0000)
+     LUT4:I3->O            1   0.612   0.000  state_reg_FSM_FFd3-In (state_reg_FSM_FFd3-In)
+     FDC:D                     0.268          state_reg_FSM_FFd3
+    ----------------------------------------
+    Total                      4.059ns (2.618ns logic, 1.441ns route)
+                                       (64.5% logic, 35.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 68 / 7
+-------------------------------------------------------------------------
+Offset:              6.953ns (Levels of Logic = 6)
+  Source:            data_in<7> (PAD)
+  Destination:       state_reg_FSM_FFd4 (FF)
+  Destination Clock: clk rising
+
+  Data Path: data_in<7> to state_reg_FSM_FFd4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.106   0.509  data_in_7_IBUF (data_in_7_IBUF)
+     LUT4:I0->O            2   0.612   0.532  state_reg_cmp_eq000011 (N01)
+     LUT3:I0->O            3   0.612   0.603  state_reg_cmp_eq000021 (N7)
+     LUT3:I0->O            2   0.612   0.449  state_reg_cmp_eq00011 (state_reg_cmp_eq0001)
+     LUT4:I1->O            1   0.612   0.426  state_reg_FSM_FFd4-In10 (state_reg_FSM_FFd4-In10)
+     LUT3:I1->O            1   0.612   0.000  state_reg_FSM_FFd4-In24 (state_reg_FSM_FFd4-In)
+     FDC:D                     0.268          state_reg_FSM_FFd4
+    ----------------------------------------
+    Total                      6.953ns (4.434ns logic, 2.519ns route)
+                                       (63.8% logic, 36.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clear_or0000'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              2.435ns (Levels of Logic = 2)
+  Source:            src_rdy_in_n (PAD)
+  Destination:       clear (LATCH)
+  Destination Clock: clear_or0000 rising
+
+  Data Path: src_rdy_in_n to clear
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.106   0.449  src_rdy_in_n_IBUF (src_rdy_in_n_IBUF)
+     LUT3:I1->O            2   0.612   0.000  state_reg_FSM_FFd6-In11 (clear_mux0001)
+     LD_1:D                    0.268          clear
+    ----------------------------------------
+    Total                      2.435ns (1.986ns logic, 0.449ns route)
+                                       (81.6% logic, 18.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              4.134ns (Levels of Logic = 1)
+  Source:            state_reg_FSM_FFd1 (FF)
+  Destination:       match_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: state_reg_FSM_FFd1 to match_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.514   0.451  state_reg_FSM_FFd1 (state_reg_FSM_FFd1)
+     OBUF:I->O                 3.169          match_out_OBUF (match_out)
+    ----------------------------------------
+    Total                      4.134ns (3.683ns logic, 0.451ns route)
+                                       (89.1% logic, 10.9% route)
+
+=========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.28 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.02 secs
  
 --> 
 
-Total memory usage is 226504 kilobytes
+Total memory usage is 228488 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

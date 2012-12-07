@@ -1,1 +1,2 @@
+vhdl work "../counter/counter.vhd"
 vhdl work "dns_regex.vhd"

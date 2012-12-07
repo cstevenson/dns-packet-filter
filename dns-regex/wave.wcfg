@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="dns_regex_tb" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/dns_regex_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/sof_in_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sof_in_n</obj_property>
+      <obj_property name="ObjectShortName">sof_in_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/src_rdy_in_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">src_rdy_in_n</obj_property>
+      <obj_property name="ObjectShortName">src_rdy_in_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/eof_in_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">eof_in_n</obj_property>
+      <obj_property name="ObjectShortName">eof_in_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/uut/state_reg" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state_reg</obj_property>
+      <obj_property name="ObjectShortName">state_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/uut/state_next" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">state_next</obj_property>
+      <obj_property name="ObjectShortName">state_next</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/uut/clear" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clear</obj_property>
+      <obj_property name="ObjectShortName">clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/uut/enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/uut/offset" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">offset[10:0]</obj_property>
+      <obj_property name="ObjectShortName">offset[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/rdy_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rdy_o</obj_property>
+      <obj_property name="ObjectShortName">rdy_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/match_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">match_o</obj_property>
+      <obj_property name="ObjectShortName">match_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/pass" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pass[1:4]</obj_property>
+      <obj_property name="ObjectShortName">pass[1:4]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dns_regex_tb/fail" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fail[1:4]</obj_property>
+      <obj_property name="ObjectShortName">fail[1:4]</obj_property>
+   </wvobject>
+</wave_config>

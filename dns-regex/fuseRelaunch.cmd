@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_isim_beh.exe" -prj "D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_beh.prj" "work.dns_regex_tb" 

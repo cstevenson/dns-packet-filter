@@ -1,0 +1,36 @@
+ISim log file
+Running: D:\_prj\dns-packet-filter\dns-regex\dns_regex_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -view D:/_prj/dns-packet-filter/dns-regex/wave.wcfg -wdb D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_isim_beh.wdb 
+ISim O.61xd (signature 0x1cce1bb2)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# run 7000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+at 160 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 550 ns: Note: Writing match results... (/dns_regex_tb/).
+at 550 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 940 ns: Note: Writing match results... (/dns_regex_tb/).
+at 940 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 1330 ns: Note: Writing match results... (/dns_regex_tb/).
+at 1330 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 1720 ns: Note: Writing match results... (/dns_regex_tb/).
+at 1720 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 2110 ns: Note: Writing match results... (/dns_regex_tb/).
+at 2110 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 2500 ns: Note: Writing match results... (/dns_regex_tb/).
+at 2500 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 2890 ns: Note: Writing match results... (/dns_regex_tb/).
+at 2890 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 3280 ns: Note: Writing match results... (/dns_regex_tb/).
+at 3280 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 3670 ns: Note: Writing match results... (/dns_regex_tb/).
+at 3670 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 4040 ns: Note: Writing match results... (/dns_regex_tb/).
+at 4040 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 4410 ns: Note: Writing match results... (/dns_regex_tb/).
+at 4410 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 4780 ns: Note: Writing match results... (/dns_regex_tb/).

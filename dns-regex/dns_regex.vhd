@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -43,14 +44,22 @@ end dns_regex;
 architecture Behavioral of dns_regex is
 
 type state_type is 
-	(st_idle, st_count1, st_proto, st_count2, st_port, st_ready);
+	(st_idle, st_any_char_counter, st_proto, st_port1, st_port2, st_match, st_no_match);
 signal state_reg, state_next: state_type;
-signal counter : std_logic_vector(7 downto 0);
-signal port_buf_reg, port_next : std_logic_vector(15 downto 0);
 signal match_buf_reg, match_next, rdy_buf_reg, rdy_next: std_logic;
+
+-- counter signals
+signal offset : std_logic_vector(10 downto 0) := (others=>'0');
+signal clear : std_logic := '0';
+signal enable : std_logic := '1';
 
 begin
 
+	-- instantiate 8-bit counter
+	counter_11_unit : entity work.counter(behv)
+		generic map(N=>11)
+		port map(clk=>clk, clear=>clear, enable=>enable, Q=>offset);
+		
 	-- state register
 	process(clk, reset)
 	begin
@@ -60,7 +69,7 @@ begin
 			state_reg <= state_next;
 		end if;
 	end process;
-	
+
 	-- output buffer
 	process(clk, reset)
 	begin
@@ -74,23 +83,55 @@ begin
 	end process;
 	
 	-- next-state logic
-	process(state_reg, sof_in_n, eof_in_n, src_rdy_in_n)
+	process(state_reg, sof_in_n, src_rdy_in_n, data_in, offset)
+	--process(state_reg, sof_in_n, src_rdy_in_n)
 	begin
 		case state_reg is
 			when st_idle =>
 				if sof_in_n = '0' and src_rdy_in_n = '0' then
-					state_next <= st_count1;
+					state_next <= st_any_char_counter;
+					clear <= '1';
+				else
+					clear <= '0';
+					state_next <= st_idle;
 				end if;
-			when st_count1 =>
-				if counter < X"16" then -- 22
-					counter <= counter + '1';
+			when st_any_char_counter => -- count any character
+				clear <= '0';
+				if offset < X"15" then -- 22 (23 incl 0)
+					state_next <= st_any_char_counter;
 				else
 					state_next <= st_proto;
 				end if;
-			when st_proto =>
-			when st_count2 =>
-			when st_port =>
-			when st_ready =>
+			when st_proto => -- check port
+				if data_in = X"11" then -- UDP packet
+					state_next <= st_port1;
+				else
+					state_next <= st_no_match;
+				end if;
+			when st_port1 =>
+				if offset < X"24" then -- offset < 36
+					if data_in = X"00" then
+						state_next <= st_port2;
+					else
+						state_next <= st_port1;
+					end if;
+				else
+					state_next <= st_no_match;
+				end if;
+			when st_port2 =>
+				if offset <= X"24" then -- offset <= 36
+					if data_in = X"35" then
+						state_next <= st_match;
+					else
+						state_next <= st_port1;
+					end if;
+				else
+					state_next <= st_no_match;
+				end if;			
+			when st_match =>
+				state_next <= st_idle;
+			when st_no_match =>
+				state_next <= st_idle;
 		end case;
 	end process;
 	
@@ -101,11 +142,20 @@ begin
 		rdy_next <= '0'; -- default value
 		case state_next is
 			when st_idle =>
-			when st_count1 =>
+			when st_any_char_counter =>
+--				if state_reg = st_idle then
+--					clear <= '1';
+--				else
+--					clear <= '0';
+--				end if;
 			when st_proto =>
-			when st_count2 =>
-			when st_port =>
-			when st_ready =>
+			when st_port1 =>
+			when st_port2 =>
+			when st_match =>
+				match_next <= '1';
+				rdy_next <= '1';
+			when st_no_match =>
+				rdy_next <= '1';
 		end case;
 	end process;
 

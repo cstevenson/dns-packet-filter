@@ -1,0 +1,25 @@
+Running: D:\Xilinx\13.2\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_isim_beh.exe -prj D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_beh.prj work.dns_regex_tb 
+ISim O.61xd (signature 0x1cce1bb2)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Parsing VHDL file "D:/_prj/dns-packet-filter/dns-regex/../counter/counter.vhd" into library work
+Parsing VHDL file "D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd" into library work
+Parsing VHDL file "D:/_prj/dns-packet-filter/dns-regex/../simulation/dns_regex_tb.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package textio
+Compiling package std_logic_textio
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behv of entity counter [\counter(11)\]
+Compiling architecture behavioral of entity dns_regex [dns_regex_default]
+Compiling architecture behavior of entity dns_regex_tb
+Time Resolution for simulation is 1ps.
+Waiting for 5 sub-compilation(s) to finish...
+Compiled 11 VHDL Units
+Built simulation executable D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_isim_beh.exe
+Fuse Memory Usage: 23584 KB
+Fuse CPU Usage: 514 ms
