@@ -10,7 +10,7 @@ Total CPU time to Xst completion: 0.13 secs
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: dns_regex.prj
 
@@ -113,20 +113,24 @@ Entity <dns_regex> (Architecture <behavioral>) compiled.
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <dns_regex> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <dns_regex> in library <work> (architecture <behavioral>) with generics.
+	PORT_NUM = "0000000000110101"
+	PROTOCOL = "00010001"
 
 Analyzing hierarchy for entity <counter> in library <work> (architecture <behv>) with generics.
-	N = 11
+	N = 8
 
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <dns_regex> in library <work> (Architecture <behavioral>).
+Analyzing generic Entity <dns_regex> in library <work> (Architecture <behavioral>).
+	PORT_NUM = "0000000000110101"
+	PROTOCOL = "00010001"
 Entity <dns_regex> analyzed. Unit <dns_regex> generated.
 
 Analyzing generic Entity <counter> in library <work> (Architecture <behv>).
-	N = 11
+	N = 8
 Entity <counter> analyzed. Unit <counter> generated.
 
 
@@ -138,7 +142,7 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <counter>.
     Related source file is "D:/_prj/dns-packet-filter/counter/counter.vhd".
-    Found 11-bit up counter for signal <Pre_Q>.
+    Found 8-bit up counter for signal <Pre_Q>.
     Summary:
 	inferred   1 Counter(s).
 Unit <counter> synthesized.
@@ -147,13 +151,12 @@ Unit <counter> synthesized.
 Synthesizing Unit <dns_regex>.
     Related source file is "D:/_prj/dns-packet-filter/dns-regex/dns_regex.vhd".
 WARNING:Xst:647 - Input <eof_in_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <enable> is used but never assigned. This sourceless signal will be automatically connected to value 1.
     Found finite state machine <FSM_0> for signal <state_reg>.
     -----------------------------------------------------------------------
-    | States             | 7                                              |
-    | Transitions        | 15                                             |
-    | Inputs             | 7                                              |
-    | Outputs            | 9                                              |
+    | States             | 8                                              |
+    | Transitions        | 17                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 10                                             |
     | Clock              | clk                       (rising_edge)        |
     | Reset              | reset                     (positive)           |
     | Reset type         | asynchronous                                   |
@@ -166,12 +169,14 @@ WARNING:Xst:737 - Found 1-bit latch for signal <clear>. Latches may be generated
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 1-bit register for signal <match_buf_reg>.
     Found 1-bit register for signal <rdy_buf_reg>.
-    Found 11-bit comparator lessequal for signal <state_reg$cmp_le0000> created at line 100.
-    Found 11-bit comparator less for signal <state_reg$cmp_lt0000> created at line 112.
+    Found 8-bit comparator lessequal for signal <state_reg$cmp_le0000> created at line 137.
+    Found 8-bit comparator less for signal <state_reg$cmp_lt0000> created at line 106.
+    Found 8-bit comparator less for signal <state_reg$cmp_lt0001> created at line 121.
+    Found 8-bit comparator less for signal <state_reg$cmp_lt0002> created at line 127.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred   2 D-type flip-flop(s).
-	inferred   2 Comparator(s).
+	inferred   4 Comparator(s).
 Unit <dns_regex> synthesized.
 
 
@@ -180,14 +185,14 @@ HDL Synthesis Report
 
 Macro Statistics
 # Counters                                             : 1
- 11-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
 # Registers                                            : 2
  1-bit register                                        : 2
 # Latches                                              : 1
  1-bit latch                                           : 1
-# Comparators                                          : 2
- 11-bit comparator less                                : 1
- 11-bit comparator lessequal                           : 1
+# Comparators                                          : 4
+ 8-bit comparator less                                 : 3
+ 8-bit comparator lessequal                            : 1
 
 =========================================================================
 
@@ -196,18 +201,19 @@ Macro Statistics
 =========================================================================
 
 Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <state_reg/FSM> on signal <state_reg[1:7]> with one-hot encoding.
----------------------------------
- State               | Encoding
----------------------------------
- st_idle             | 0000001
- st_any_char_counter | 0000010
- st_proto            | 0000100
- st_port1            | 0001000
- st_port2            | 0100000
- st_match            | 1000000
- st_no_match         | 0010000
----------------------------------
+Optimizing FSM <state_reg/FSM> on signal <state_reg[1:8]> with one-hot encoding.
+----------------------------------
+ State                | Encoding
+----------------------------------
+ st_idle              | 00000001
+ st_any_char_counter  | 00000010
+ st_proto             | 00000100
+ st_any_char_counter2 | 00001000
+ st_port1             | 00100000
+ st_port2             | 01000000
+ st_match             | 10000000
+ st_no_match          | 00010000
+----------------------------------
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -215,14 +221,14 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # FSMs                                                 : 1
 # Counters                                             : 1
- 11-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
 # Registers                                            : 2
  Flip-Flops                                            : 2
 # Latches                                              : 1
  1-bit latch                                           : 1
-# Comparators                                          : 2
- 11-bit comparator less                                : 1
- 11-bit comparator lessequal                           : 1
+# Comparators                                          : 4
+ 8-bit comparator less                                 : 3
+ 8-bit comparator lessequal                            : 1
 
 =========================================================================
 
@@ -243,8 +249,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 19
- Flip-Flops                                            : 19
+# Registers                                            : 17
+ Flip-Flops                                            : 17
 
 =========================================================================
 
@@ -273,22 +279,23 @@ Design Statistics
 # IOs                              : 15
 
 Cell Usage :
-# BELS                             : 65
+# BELS                             : 62
 #      GND                         : 1
 #      INV                         : 1
-#      LUT1                        : 10
+#      LUT1                        : 7
 #      LUT2                        : 4
-#      LUT3                        : 7
+#      LUT3                        : 8
+#      LUT3_D                      : 1
 #      LUT3_L                      : 1
-#      LUT4                        : 12
-#      LUT4_D                      : 5
-#      MUXCY                       : 10
-#      MUXF5                       : 2
+#      LUT4                        : 16
+#      LUT4_D                      : 3
+#      LUT4_L                      : 1
+#      MUXCY                       : 7
+#      MUXF5                       : 3
 #      VCC                         : 1
-#      XORCY                       : 11
-# FlipFlops/Latches                : 20
-#      FDC                         : 7
-#      FDCE                        : 11
+#      XORCY                       : 8
+# FlipFlops/Latches                : 18
+#      FDC                         : 16
 #      FDP                         : 1
 #      LD_1                        : 1
 # Clock Buffers                    : 1
@@ -303,9 +310,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-5 
 
- Number of Slices:                       23  out of   4656     0%  
- Number of Slice Flip Flops:             20  out of   9312     0%  
- Number of 4 input LUTs:                 40  out of   9312     0%  
+ Number of Slices:                       22  out of   4656     0%  
+ Number of Slice Flip Flops:             18  out of   9312     0%  
+ Number of 4 input LUTs:                 42  out of   9312     0%  
  Number of IOs:                          15
  Number of bonded IOBs:                  14  out of    232     6%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -331,8 +338,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 19    |
-clear_or0000(clear_or0000_f5:O)    | NONE(*)(clear)         | 1     |
+clk                                | BUFGP                  | 17    |
+clear_or0000(clear_or00001:O)      | NONE(*)(clear)         | 1     |
 -----------------------------------+------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
@@ -341,20 +348,20 @@ INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered
 
 Asynchronous Control Signals Information:
 ----------------------------------------
------------------------------------+------------------------------+-------+
-Control Signal                     | Buffer(FF name)              | Load  |
------------------------------------+------------------------------+-------+
-clear(clear:Q)                     | NONE(counter_11_unit/Pre_Q_0)| 11    |
-reset                              | IBUF                         | 8     |
------------------------------------+------------------------------+-------+
+-----------------------------------+-----------------------------+-------+
+Control Signal                     | Buffer(FF name)             | Load  |
+-----------------------------------+-----------------------------+-------+
+reset                              | IBUF                        | 9     |
+clear(clear:Q)                     | NONE(counter_8_unit/Pre_Q_0)| 8     |
+-----------------------------------+-----------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 4.059ns (Maximum Frequency: 246.387MHz)
-   Minimum input arrival time before clock: 6.953ns
-   Maximum output required time after clock: 4.134ns
+   Minimum period: 4.887ns (Maximum Frequency: 204.614MHz)
+   Minimum input arrival time before clock: 8.292ns
+   Maximum output required time after clock: 4.182ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -363,77 +370,83 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.059ns (frequency: 246.387MHz)
-  Total number of paths / destination ports: 149 / 19
+  Clock period: 4.887ns (frequency: 204.614MHz)
+  Total number of paths / destination ports: 162 / 17
 -------------------------------------------------------------------------
-Delay:               4.059ns (Levels of Logic = 3)
-  Source:            counter_11_unit/Pre_Q_6 (FF)
-  Destination:       rdy_buf_reg (FF)
+Delay:               4.887ns (Levels of Logic = 4)
+  Source:            counter_8_unit/Pre_Q_5 (FF)
+  Destination:       state_reg_FSM_FFd3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: counter_11_unit/Pre_Q_6 to rdy_buf_reg
+  Data Path: counter_8_unit/Pre_Q_5 to state_reg_FSM_FFd3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             3   0.514   0.603  counter_11_unit/Pre_Q_6 (counter_11_unit/Pre_Q_6)
-     LUT3:I0->O            3   0.612   0.454  state_reg_cmp_lt0000224 (state_reg_cmp_lt0000224)
-     LUT4_D:I3->O          2   0.612   0.383  state_reg_cmp_lt0000239 (state_reg_cmp_lt0000)
-     LUT4:I3->O            1   0.612   0.000  state_reg_FSM_FFd3-In (state_reg_FSM_FFd3-In)
+     FDC:C->Q              3   0.514   0.603  counter_8_unit/Pre_Q_5 (counter_8_unit/Pre_Q_5)
+     LUT3_D:I0->O          4   0.612   0.502  state_reg_cmp_lt0000111 (N01)
+     LUT4:I3->O            2   0.612   0.449  state_reg_cmp_lt00011 (state_reg_cmp_lt0001)
+     LUT4_L:I1->LO         1   0.612   0.103  state_reg_FSM_FFd3-In37_SW0 (N19)
+     LUT4:I3->O            1   0.612   0.000  state_reg_FSM_FFd3-In37 (state_reg_FSM_FFd3-In)
      FDC:D                     0.268          state_reg_FSM_FFd3
     ----------------------------------------
-    Total                      4.059ns (2.618ns logic, 1.441ns route)
-                                       (64.5% logic, 35.5% route)
+    Total                      4.887ns (3.230ns logic, 1.657ns route)
+                                       (66.1% logic, 33.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 68 / 7
+  Total number of paths / destination ports: 100 / 8
 -------------------------------------------------------------------------
-Offset:              6.953ns (Levels of Logic = 6)
+Offset:              8.292ns (Levels of Logic = 8)
   Source:            data_in<7> (PAD)
-  Destination:       state_reg_FSM_FFd4 (FF)
+  Destination:       rdy_buf_reg (FF)
   Destination Clock: clk rising
 
-  Data Path: data_in<7> to state_reg_FSM_FFd4
+  Data Path: data_in<7> to rdy_buf_reg
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   1.106   0.509  data_in_7_IBUF (data_in_7_IBUF)
-     LUT4:I0->O            2   0.612   0.532  state_reg_cmp_eq000011 (N01)
-     LUT3:I0->O            3   0.612   0.603  state_reg_cmp_eq000021 (N7)
-     LUT3:I0->O            2   0.612   0.449  state_reg_cmp_eq00011 (state_reg_cmp_eq0001)
-     LUT4:I1->O            1   0.612   0.426  state_reg_FSM_FFd4-In10 (state_reg_FSM_FFd4-In10)
-     LUT3:I1->O            1   0.612   0.000  state_reg_FSM_FFd4-In24 (state_reg_FSM_FFd4-In)
-     FDC:D                     0.268          state_reg_FSM_FFd4
+     LUT4:I0->O            2   0.612   0.410  state_reg_cmp_eq000011 (N11)
+     LUT3:I2->O            4   0.612   0.651  state_reg_cmp_eq000021 (N7)
+     LUT3:I0->O            4   0.612   0.651  state_reg_cmp_eq00002 (state_reg_cmp_eq0000)
+     LUT4:I0->O            1   0.612   0.000  state_reg_cmp_lt00021_SW2_G (N24)
+     MUXF5:I1->O           1   0.278   0.360  state_reg_cmp_lt00021_SW2 (N17)
+     LUT4_D:I3->O          1   0.612   0.387  state_reg_FSM_FFd4-In_SW0 (N14)
+     LUT4:I2->O            1   0.612   0.000  state_reg_FSM_Out91 (rdy_next)
+     FDC:D                     0.268          rdy_buf_reg
     ----------------------------------------
-    Total                      6.953ns (4.434ns logic, 2.519ns route)
-                                       (63.8% logic, 36.2% route)
+    Total                      8.292ns (5.324ns logic, 2.968ns route)
+                                       (64.2% logic, 35.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clear_or0000'
-  Total number of paths / destination ports: 2 / 1
+  Total number of paths / destination ports: 10 / 1
 -------------------------------------------------------------------------
-Offset:              2.435ns (Levels of Logic = 2)
-  Source:            src_rdy_in_n (PAD)
+Offset:              5.960ns (Levels of Logic = 5)
+  Source:            data_in<7> (PAD)
   Destination:       clear (LATCH)
   Destination Clock: clear_or0000 rising
 
-  Data Path: src_rdy_in_n to clear
+  Data Path: data_in<7> to clear
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.106   0.449  src_rdy_in_n_IBUF (src_rdy_in_n_IBUF)
-     LUT3:I1->O            2   0.612   0.000  state_reg_FSM_FFd6-In11 (clear_mux0001)
+     IBUF:I->O             1   1.106   0.509  data_in_7_IBUF (data_in_7_IBUF)
+     LUT4:I0->O            2   0.612   0.410  state_reg_cmp_eq000011 (N11)
+     LUT3:I2->O            4   0.612   0.651  state_reg_cmp_eq000021 (N7)
+     LUT3:I0->O            4   0.612   0.568  state_reg_cmp_eq00002 (state_reg_cmp_eq0000)
+     LUT3:I1->O            1   0.612   0.000  clear_mux00011 (clear_mux0001)
      LD_1:D                    0.268          clear
     ----------------------------------------
-    Total                      2.435ns (1.986ns logic, 0.449ns route)
-                                       (81.6% logic, 18.4% route)
+    Total                      5.960ns (3.822ns logic, 2.138ns route)
+                                       (64.1% logic, 35.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Offset:              4.134ns (Levels of Logic = 1)
+Offset:              4.182ns (Levels of Logic = 1)
   Source:            state_reg_FSM_FFd1 (FF)
   Destination:       match_out (PAD)
   Source Clock:      clk rising
@@ -442,23 +455,23 @@ Offset:              4.134ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              3   0.514   0.451  state_reg_FSM_FFd1 (state_reg_FSM_FFd1)
+     FDC:C->Q              4   0.514   0.499  state_reg_FSM_FFd1 (state_reg_FSM_FFd1)
      OBUF:I->O                 3.169          match_out_OBUF (match_out)
     ----------------------------------------
-    Total                      4.134ns (3.683ns logic, 0.451ns route)
-                                       (89.1% logic, 10.9% route)
+    Total                      4.182ns (3.683ns logic, 0.499ns route)
+                                       (88.1% logic, 11.9% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.02 secs
+Total CPU time to Xst completion: 6.34 secs
  
 --> 
 
-Total memory usage is 228488 kilobytes
+Total memory usage is 228360 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    3 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    3 (   0 filtered)
 

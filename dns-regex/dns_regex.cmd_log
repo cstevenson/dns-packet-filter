@@ -43,3 +43,16 @@ xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn 
 xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
 xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
 xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 dns_regex.ngc dns_regex.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o dns_regex_map.ncd dns_regex.ngd dns_regex.pcf 
+par -w -intstyle ise -ol high -t 1 dns_regex_map.ncd dns_regex.ncd dns_regex.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml dns_regex.twx dns_regex.ncd -o dns_regex.twr dns_regex.pcf 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 
+xst -intstyle ise -ifn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.xst" -ofn "D:/_prj/dns-packet-filter/dns-regex/dns_regex.syr" 

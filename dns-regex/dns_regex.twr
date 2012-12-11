@@ -36,18 +36,51 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
 
 Data Sheet report:
 -----------------
-No constraints were found to generate data for the Data Sheet Report section.
-Use the Advanced Analysis (-a) option or generate global constraints for each
-clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
+All values displayed in nanoseconds (ns)
 
-Analysis completed Wed Dec 05 00:16:44 2012 
+Setup/Hold to clock clk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+data_in<0>  |    4.423(R)|   -0.461(R)|clk_BUFGP         |   0.000|
+data_in<1>  |    6.311(R)|   -1.728(R)|clk_BUFGP         |   0.000|
+data_in<2>  |    4.061(R)|   -0.171(R)|clk_BUFGP         |   0.000|
+data_in<3>  |    5.937(R)|   -1.428(R)|clk_BUFGP         |   0.000|
+data_in<4>  |    4.107(R)|   -0.209(R)|clk_BUFGP         |   0.000|
+data_in<5>  |    3.676(R)|    0.137(R)|clk_BUFGP         |   0.000|
+data_in<6>  |    6.078(R)|   -1.542(R)|clk_BUFGP         |   0.000|
+data_in<7>  |    5.716(R)|   -1.252(R)|clk_BUFGP         |   0.000|
+sof_in_n    |    2.728(R)|    0.528(R)|clk_BUFGP         |   0.000|
+src_rdy_in_n|    2.782(R)|    0.485(R)|clk_BUFGP         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+match_out   |    7.526(R)|clk_BUFGP         |   0.000|
+rdy_out     |    6.714(R)|clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    4.645|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Sat Dec 08 23:38:36 2012 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 159 MB
+Peak Memory Usage: 163 MB
 
 
 
