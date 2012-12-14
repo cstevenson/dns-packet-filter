@@ -11,26 +11,26 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 at 160 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 550 ns: Note: Writing match results... (/dns_regex_tb/).
-at 550 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 940 ns: Note: Writing match results... (/dns_regex_tb/).
-at 940 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 1330 ns: Note: Writing match results... (/dns_regex_tb/).
-at 1330 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 1720 ns: Note: Writing match results... (/dns_regex_tb/).
-at 1720 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 2110 ns: Note: Writing match results... (/dns_regex_tb/).
-at 2110 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 2500 ns: Note: Writing match results... (/dns_regex_tb/).
-at 2500 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 2890 ns: Note: Writing match results... (/dns_regex_tb/).
-at 2890 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 3280 ns: Note: Writing match results... (/dns_regex_tb/).
-at 3280 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 3670 ns: Note: Writing match results... (/dns_regex_tb/).
-at 3670 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 4040 ns: Note: Writing match results... (/dns_regex_tb/).
-at 4040 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 4410 ns: Note: Writing match results... (/dns_regex_tb/).
-at 4410 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
-at 4780 ns: Note: Writing match results... (/dns_regex_tb/).
+at 560 ns: Note: Writing match results... (/dns_regex_tb/).
+at 560 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 960 ns: Note: Writing match results... (/dns_regex_tb/).
+at 960 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 1360 ns: Note: Writing match results... (/dns_regex_tb/).
+at 1360 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 1760 ns: Note: Writing match results... (/dns_regex_tb/).
+at 1760 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 2160 ns: Note: Writing match results... (/dns_regex_tb/).
+at 2160 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 2560 ns: Note: Writing match results... (/dns_regex_tb/).
+at 2560 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 2960 ns: Note: Writing match results... (/dns_regex_tb/).
+at 2960 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 3360 ns: Note: Writing match results... (/dns_regex_tb/).
+at 3360 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 3760 ns: Note: Writing match results... (/dns_regex_tb/).
+at 3760 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 4160 ns: Note: Writing match results... (/dns_regex_tb/).
+at 4160 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 4560 ns: Note: Writing match results... (/dns_regex_tb/).
+at 4560 ns: Note: Reading next DNS packet... (/dns_regex_tb/).
+at 4950 ns: Note: Writing match results... (/dns_regex_tb/).

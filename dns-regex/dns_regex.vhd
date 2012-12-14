@@ -52,14 +52,13 @@ signal match_buf_reg, match_next, rdy_buf_reg, rdy_next: std_logic;
 
 -- counter signals
 signal offset : std_logic_vector(7 downto 0) := (others=>'0');
-signal clear : std_logic := '0';
-
+signal clear: std_logic := '0';
 begin
 
 	-- instantiate 8-bit counter 
 	counter_8_unit : entity work.counter(behv)
 		generic map(N=>8)
-		port map(clk=>clk, clear=>clear, enable=>'1', Q=>offset);
+		port map(clk=>clk, clear=>clear, inc=>'0', enable=>'1', Q=>offset);
 		
 	-- state register
 	process(clk, reset)
@@ -90,7 +89,7 @@ begin
 	--------------------------------------------------------
 	
 	-- next-state logic
-	process(state_reg, sof_in_n, src_rdy_in_n, data_in, offset)
+	process(state_reg, sof_in_n, eof_in_n, src_rdy_in_n, data_in, offset)
 	begin
 		case state_reg is
 			when st_idle =>
@@ -124,6 +123,7 @@ begin
 					state_next <= st_port1;
 				end if;
 			when st_port1 =>				
+				clear <= '0';
 				if offset < X"0E" then -- 14 where the port is located
 					if data_in = PORT_NUM(15 downto 8) then
 						state_next <= st_port2;
@@ -134,6 +134,7 @@ begin
 					state_next <= st_no_match;
 				end if;
 			when st_port2 =>
+				clear <= '0';
 				if offset <= X"0E" then -- offset <= 14
 					if data_in = PORT_NUM(7 downto 0) then
 						state_next <= st_match;
@@ -144,8 +145,10 @@ begin
 					state_next <= st_no_match;
 				end if;			
 			when st_match =>
+				clear <= '1';
 				state_next <= st_idle;
 			when st_no_match =>
+				clear <= '1';
 				state_next <= st_idle;
 		end case;
 	end process;

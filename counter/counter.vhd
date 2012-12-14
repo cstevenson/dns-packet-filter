@@ -29,6 +29,7 @@ entity counter is
 	generic (N: natural := 2);
    Port 	( clk 	: in  STD_LOGIC;
            clear 	: in  STD_LOGIC;
+           inc    : in  STD_LOGIC;
            enable : in  STD_LOGIC;
            Q 		: out STD_LOGIC_VECTOR(N-1 downto 0)
 			);
@@ -45,7 +46,7 @@ begin
 		if clear = '1' then
 			Pre_Q <= Pre_Q - Pre_Q;
 		elsif (clk='1' and clk'event) then
-			if enable = '1' then
+			if enable = '1' or inc = '1' then
 				Pre_Q <= Pre_Q + '1';
 			end if;
 		end if;

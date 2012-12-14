@@ -2,14 +2,14 @@ Command line:
    dns_regex_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  53193
+     -socket  60614
 
-Mon Dec 10 21:14:12 2012
+Tue Dec 11 21:01:38 2012
 
 
- Elaboration Time: 0.0468 sec
+ Elaboration Time: 0.093601 sec
 
- Current Memory Usage: 351.572 Meg
+ Current Memory Usage: 341.09 Meg
 
  Total Signals          : 30
  Total Nets             : 39
@@ -21,9 +21,9 @@ Mon Dec 10 21:14:12 2012
  Total Scalar Nets and Variables : 972
 Total Line Count : 90
 
- Total Simulation Time: 0.2184 sec
+ Total Simulation Time: 1.07641 sec
 
- Current Memory Usage: 351.572 Meg
+ Current Memory Usage: 341.09 Meg
 
-Mon Dec 10 21:17:06 2012
+Tue Dec 11 21:03:58 2012
 

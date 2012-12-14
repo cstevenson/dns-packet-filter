@@ -1,1 +1,1 @@
-vhdl work "../counter/counter.vhd"
+vhdl work "../enh_counter/counter.vhd"
