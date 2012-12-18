@@ -15,11 +15,11 @@ Compiling package std_logic_textio
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
 Compiling architecture behv of entity counter [\counter(8)\]
-Compiling architecture behavioral of entity dns_regex [\dns_regex(('0','0','0','1','0',...]
+Compiling architecture behavioral of entity dns_regex [\dns_regex(('0','0','0','0','0',...]
 Compiling architecture behavior of entity dns_regex_tb
 Time Resolution for simulation is 1ps.
 Waiting for 5 sub-compilation(s) to finish...
 Compiled 11 VHDL Units
 Built simulation executable D:/_prj/dns-packet-filter/dns-regex/dns_regex_tb_isim_beh.exe
-Fuse Memory Usage: 23508 KB
-Fuse CPU Usage: 576 ms
+Fuse Memory Usage: 23672 KB
+Fuse CPU Usage: 467 ms

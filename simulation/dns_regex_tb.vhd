@@ -40,9 +40,10 @@ USE std.textio.ALL;
 ENTITY dns_regex_tb IS
 END dns_regex_tb;
  
-ARCHITECTURE behavior OF dns_regex_tb IS 
+        ARCHITECTURE behavior OF dns_regex_tb IS 
  
-	FILE fr: TEXT OPEN READ_MODE IS "dns_test_input.txt";
+	FILE fr: TEXT OPEN READ_MODE IS "packet_test_input.txt";
+	--FILE fr: TEXT OPEN READ_MODE IS "dns_test_input.txt";
 	FILE fw: TEXT OPEN WRITE_MODE IS "test_results.txt";
 
     -- Component Declaration for the Unit Under Test (UUT) 
@@ -81,7 +82,13 @@ ARCHITECTURE behavior OF dns_regex_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: dns_regex PORT MAP (
+	-- Instantiate the Unit Under Test (UUT)
+	-- instantiate 8-bit counter 
+	dns_regex_uut : entity work.dns_regex(Behavioral)
+		--generic map(PROTOCOL=>X"06", PORT_NUM=>X"0050") -- tcp/http port 80
+		generic map(PROTOCOL=>X"06", PORT_NUM=>X"01bb") -- tcp/https port 443
+		--generic map(PROTOCOL=>X"11", PORT_NUM=>X"0035") -- dns
+      port map (
           clk => clk,
           reset => reset,
           data_in => data_in,
