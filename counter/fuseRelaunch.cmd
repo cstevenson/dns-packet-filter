@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/_prj/dns-packet-filter/counter/counter_tb_isim_beh.exe" -prj "D:/_prj/dns-packet-filter/counter/counter_tb_beh.prj" "work.counter_tb" 

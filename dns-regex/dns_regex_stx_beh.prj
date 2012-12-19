@@ -1,0 +1,2 @@
+vhdl isim_temp "../counter/counter.vhd"
+vhdl isim_temp "dns_regex.vhd"
